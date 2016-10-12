@@ -1,0 +1,18 @@
+<html>
+    <head>
+        <script type="text/javascript">
+            function buttonClicked(){
+                var name = prompt("What's your name?");
+                var message = "Hello, " + name;
+                document.getElementById("name").innerHTML = message;
+            }
+        </script>
+    </head>
+    <body>
+        <p id="name">
+        </p>
+        <button onclick="buttonClicked()">
+            Click this
+        </button>
+    </body>
+</html>

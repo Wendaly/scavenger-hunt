@@ -1,22 +1,24 @@
-var romanMatrix = [
-  [100, 'C'],
-  [90, 'XC'],
-  [50, 'L'],
-  [40, 'XL'],
-  [10, 'X'],
-  [9, 'IX'],
-  [5, 'V'],
-  [4, 'IV'],
-  [1, 'I']
-];
-
-function convertToRoman(num) {
-  if (num === 0) {
-    return '';
+var number = prompt("What number do you want to convert?");
+alert(convert(number));
+function convert(number){
+  var tens= Number(number.toString().charAt(0));
+  var tensroman= "X".repeat(tens);
+  var ones= number.toString().charAt(1);
+  var onesroman;
+  if(ones < 4){
+    onesroman= "I".repeat(ones);
+  } 
+  else{
+    var oneshardcoded={
+      "4":"IV",
+      "5":"V",
+      "6":"VI",
+      "7":"VII",
+      "8":"VIII",
+      "9":"IX"
+    };
+    onesroman= oneshardcoded[ones];
   }
-  for (var i = 0; i < romanMatrix.length; i++) {
-    if (num >= romanMatrix[i][0]) {
-      return romanMatrix[i][1] + convertToRoman(num - romanMatrix[i][0]);
-    }
-  }
+  var finalnumber= tensroman+onesroman;
+  return finalnumber;
 }
